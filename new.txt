@@ -1,6 +1,14 @@
 git命令
 git init ：把当前所在目录变为git库
+
 一：创建版本库
 版本库又名仓库，英文名repository
-1.git add 添加文件
-2.git commit -m “备注”
+1.git add :添加文件
+2.git commit -m “备注” ：提交到库中
+
+二:时光穿梭机
+1.git status ：可以让我们时刻掌握仓库当前的状态 
+三：版本回退
+1. git log ：命令显示从最近到最远的提交日志
+   git log --pretty=oneline  :显示在一行
+   git  reset --hard HEAD^ ： 回退到上一个版本 要是回退到之前的100个版本 HEAD~100即可
