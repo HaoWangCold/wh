@@ -1,0 +1,6 @@
+git命令
+git init ：把当前所在目录变为git库
+一：创建版本库
+版本库又名仓库，英文名repository
+1.git add 添加文件
+2.git commit -m “备注”
