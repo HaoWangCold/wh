@@ -30,3 +30,15 @@ HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历�
 5. git clone git@github.com:HaoWangCold/gitskills.git ： 把文件从github上下载下来
 	注: git@github.com:HaoWangCold 与  http://github.com/HaoWangCold 是一个意思 但用的协议不同。git用的是ssh协议，http用的是https协议
 	
+五：分支管理
+1. 查看分支：git branch
+2.创建分支：git branch <name>
+3.切换分支：git checkout <name>
+4.创建+切换分支：git checkout -b <name>
+5.合并某分支到当前分支：git merge <name>
+6.删除分支：git branch -d <name>
+
+创建dev分支 : git checkout -b dev 相当于 git branch dev 加上 git checkout dev
+ 
+											
+	
