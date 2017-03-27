@@ -40,5 +40,8 @@ HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历�
 
 创建dev分支 : git checkout -b dev 相当于 git branch dev 加上 git checkout dev
  
-											
+7.当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。即再修改一次之后 确定修改的内容，也会使master分支往前移一位，这样，合并就没有冲突了，也会存你最新修改的内容。
+  git log --graph ： 可以看到分支合并图	
+  $ git log --graph --pretty=oneline --abbrev-commit： 查看分支合并图 。
+										
 	
