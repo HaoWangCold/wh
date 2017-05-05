@@ -13,7 +13,7 @@
 	24位：每个像素最多可以表示1600多万种颜色 也就是RGB的组合
 那么一个像素占3byte 即R G B 分别是 1byte  
 
-2.缩放加载加载大图片
+2.缩放加载大图片
 
 	1)获取图片的分辨率 2400*3200 
 	2)获取手机的图片   320*480
@@ -21,3 +21,67 @@
 		宽 7
 	 	高 6
 	4)按大比例缩放
+
+3.获取手机的分辨率和图片的分辨率
+	需要用到的类：WindowManager :窗口管理者（以前学过的manager: SmsManager,TelephoneManager）
+	获取WindowManager的方法：WindowManager wm = (WindowManager)getSystemService(WINDOW_SERVICE);
+	获取手机分辨率的方法：
+		过时的获取分辨率的方法 （JAVA语言的思想）：
+			int height = wm.getDefaultDisplay().getHeight();获取高
+			int width = wm.getDefaultDisplay().getWidth();获取宽
+		与时俱进的方法(C语言的思想)：
+			Point point = new Point();
+			wm.getDefaultDisplay().getSize(point);
+			int width = point.x;
+			int height = point.y;  注 :使用时把minSdkVersion的版本改为13或以上，才能用。
+	获取图片分辨率的方法：
+		1)创建一个位图工厂的配置参数：
+			BitmapFactory.Options options = new Options();
+		2)解码器不去真正的解析位图 但是能够获取图片的宽和高信息
+			options.inJustDecodeBounds = true;
+			BitmapFactory.decodeFile("图片位置"，options);
+		3)获取图片的宽和高的信息
+			int imgWidth = options.outWidth;
+			int imgHeight = options.outHeight;
+
+4.缩放显示大图片原理
+	计算缩放比：
+		int scale = 1;
+		int scaleX = imgwidth/width;
+		int scaleY = imgheight/height;
+		if(scaleX>=scaleY && scaleX>scale){ scaleX = scale }
+		if(scaleY>=scaleX && scaleY>scale){ scaleY = scale }
+	按照缩放比进行显示
+		option.inSimpleSize = scale;
+	按照缩放比解析位图
+		options.inJustDecodeBounds = false;
+		Bitmap bitmap = BitmapFactory.decodeFile("图片位置"，options);
+	把Bitmap显示在iv上
+		iv.setImageBitmap(bitmap);
+5.创建原图副本
+	创建原图：
+		Bitmap srcBitmap = BitmapFactory.decodeResource(getResource(),R,drawable.图片名);  注：图片放在了drawable 目录下
+		iv_src.setImageBitmap(srcBitmap);
+		
+	创建副本：
+		Bitmap copyBitmap = BitMap.createBitmap(srcBitmap.getWidth(),srcBitmap.getHeight(),srcBitmap.getConfig());
+		Paint paint = new Paint();  新建的画笔
+		Canvas canvas = new Canvas();  新建的画布
+		canvas.drawBitmap(srcBitmap,new Matrix(),paint); 作画
+		iv_copy.setImageBitmap(copyBitmap); 显示副本
+	修改副本
+		copyBitmap.setPixel(x,y,Color.RED) 只能改一个点 想画成线 需要用for循环 第三个参数是颜色。
+	
+6.图片处理的api
+		
+
+
+
+
+
+
+
+
+
+
+
