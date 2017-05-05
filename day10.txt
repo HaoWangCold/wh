@@ -73,11 +73,17 @@
 		copyBitmap.setPixel(x,y,Color.RED) 只能改一个点 想画成线 需要用for循环 第三个参数是颜色。
 	
 6.图片处理的api
-		
-
-
-
-
+	其实就是修改canvas.drawBitmap(srcBitmap,new Matrix(),paint) 中new Matrix()参数
+	Matrix matrix = new Matrix(); 之后修改结束后 把matrix作为参数传进去.
+	matrix.setRotate(角度,srcBitmap.getWidth()/2,srcBitmap.getHeight()/2); 旋转，第一个为旋转角度 第二个，第三个确认旋转中心。
+	matrix.setScale(sx，sy); 缩放 传入参数为缩放比例 	
+	matrix.setTranslate(dx，dy); 平移  参数为x y 轴的平移距离
+	镜面是缩放和平移： 
+	matrix.setScale(-0.1f，1);	
+	matrix.postTranslate(srcBitmap.getWidth()，0);  组合使用时 第一个是set 之后用post方法，post是在原基础上进行操作，set会覆盖上次的操作。
+	倒影也是缩放和平移
+	matrix.setScale(0.1f，-1);	
+	matrix.postTranslate(0，srcBitmap.getHeight());
 
 
 
