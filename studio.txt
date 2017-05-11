@@ -1,0 +1,21 @@
+Android Studio设置与快捷键
+一：Android Studio设置
+	点击File->Settings更改Android Studio的设置。
+二：Android Studio 和 eclipse常用快捷键对比
+	
+功能	AndroidStudio	                                     Eclipse
+代码提示	ctrl+alt+space/ctrl+shift+space	             alt+/
+快速修复(Quick Fix)	alt+enter	                     ctrl+1
+快速生成代码	alt+insert	                             alt+shift+s
+代码参数提示	ctrl+p	                                     alt+/
+整理导包语句	ctrl+alt+o	                             ctrl+shift+o
+代码格式化	ctrl+alt+l	                             ctrl+shift+f
+查看类成员	ctrl+f12, ctrl+alt+shift+n	             ctrl+o
+查看继承结构	选中后ctrl+h/ctrl+alt+b	                     ctrl+t
+查找某个类/文件	shift+shift/ctrl+n/ctrl+shift+n	             ctrl+shift+t/ctrl+shift+r
+删除当前行	ctrl+y/ctrl+x/ctrl+c	                     ctrl+d
+复制当前行	ctrl+d	                                     ctrl+alt+up/down
+全局查找	ctrl+shift+f	                             ctrl+h
+全局替换	ctrl+shift+r	                             ctrl+h
+上下移动行	ctrl+shift+up/down	                     alt+up/down
+
