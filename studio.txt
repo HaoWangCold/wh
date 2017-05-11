@@ -20,3 +20,5 @@ Android Studio设置与快捷键
 上下移动行	ctrl+shift+up/down	                     alt+up/down
 
 生成成员变量： 写完之后 在后面加 .field 选择要生成变量的方法，改名即可。
+
+alt+insert 生成各种代码
